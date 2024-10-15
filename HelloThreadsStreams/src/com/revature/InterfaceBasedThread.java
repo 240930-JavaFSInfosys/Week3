@@ -16,7 +16,14 @@ public class InterfaceBasedThread implements Runnable{
 
             System.out.println(name + " is on iteration: " + i);
 
-            //TODO: might add some delay here
+            //Thread.sleep() forces a Thread to wait for x amount of milliseconds between runs
+            //This method throws InterruptedException, which is a Checked Exception.
+                //We must handle it before compilation!
+            try{
+                Thread.sleep(500);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
 
         }
 
