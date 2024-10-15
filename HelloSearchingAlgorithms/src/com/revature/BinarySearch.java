@@ -7,7 +7,12 @@ public class BinarySearch {
         //Array of ints to search through
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        System.out.println(binarySearch(arr, 8));
+        int target = 9;
+        int result = binarySearch(arr, target);
+
+        if(result != -1){
+            System.out.println("Target " + target + " found at index: " + result);
+        }
 
     }
 
@@ -39,8 +44,15 @@ public class BinarySearch {
                 return mid;
             }
 
-            //TODO: check which half we need to focus on
-            //TODO: return the value once found
+            System.out.println("Data splits here!");
+
+            //if the middle element is < the target, ignore the left half (we know it's in the right half)
+            if(arr[mid] < target){
+                left = mid + 1; //our left counter is now the middle index (+1 due to zero indexing)
+            } else {
+                //if the target is < the middle element, ignore the right half
+                right = mid - 1; //our right counter is now the middle index (-1 due to zero indexing)
+            }
 
         } //end of while loop
 
