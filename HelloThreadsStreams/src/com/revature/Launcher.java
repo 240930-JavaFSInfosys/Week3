@@ -4,6 +4,7 @@ package com.revature;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -97,7 +98,7 @@ public class Launcher {
         //Getting every method found in Thread and printing it out
         for(Method m : threadClassObjectForReflection.getMethods()){
             System.out.println(m);
-            System.out.println(m.getGenericExceptionTypes().getClass());
+            System.out.println(Arrays.toString(m.getExceptionTypes())); //printing out the methods Exceptions (which is an Array)
         }
 
 
