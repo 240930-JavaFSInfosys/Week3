@@ -1,6 +1,8 @@
 package com.revature;
 
 
+
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -84,12 +86,20 @@ public class Launcher {
                 .filter(name -> name.length() < 7) //remove elements that are not shorter than 7 characters
                 .toList(); //terminal operation - end the stream and return the results as a List
 
-        System.out.println(newNames); //These are all Strings,
+        System.out.println(newNames);
 
 
-        //Quick Reflection API Example
+        //Quick Reflection API Example-------
 
-        
+        //Using Reflection to get an object that is a representation of the Thread Class
+        Class<Thread> threadClassObjectForReflection = Thread.class;
+
+        //Getting every method found in Thread and printing it out
+        for(Method m : threadClassObjectForReflection.getMethods()){
+            System.out.println(m);
+            System.out.println(m.getGenericExceptionTypes().getClass());
+        }
+
 
     }
 
